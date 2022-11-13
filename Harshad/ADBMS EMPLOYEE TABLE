@@ -1,0 +1,241 @@
+For the following relation schema:
+
+employee(emp_id,employee-name, street, city)
+
+works(emp_id, comp_id, salary)
+
+company(comp_id,company-name, city)
+
+manager(manager_id,manager_name)
+
+manage(emp_id, manager-id)
+
+Give an expression in SQL for each of the following queries:
+
+Question 1:
+
+A. Create above mentioned database and feed at least 15 entries in table
+employee. Fill all the tables with respect to table employee.
+
+B. Find list of employees with their salaries.
+
+C. Find name of all employees with their respective managers and name of city
+where company situated.
+
+D. Find list of employees who has their office in their native city.
+
+E. Find the names, street address, and cities of residence for all employees who
+work for 'First Bank Corporation' and earn more than $10,000.
+
+
+-- ********************** CREATE EMPLOYEE TABLE  **********************
+  CREATE TABLE EMPLOYEE (  
+      EMP_NO INT PRIMARY KEY,   
+      NAME VARCHAR(30) NOT NULL,  
+      STREET VARCHAR(20) NOT NULL,  
+      CITY VARCHAR(20) NOT NULL  
+);
+
+-- A. Create above mentioned database and feed at least 15 entries in table
+employee. Fill all the tables with respect to table employee.
+
+-- ********************** INSERT DATA IN ENPLOYEE TABLE  **********************
+
+INSERT INTO EMPLOYEE VALUES(001,'HARSHAD','GUJARAT','MEHSANA');
+
+INSERT INTO EMPLOYEE VALUES(002,'AAKASH','GUJARAT','GATHINAGAR');
+
+INSERT INTO EMPLOYEE VALUES(003,'PAYAL','GUJARAT','MEHSANA');
+
+INSERT INTO EMPLOYEE VALUES(004,'AASI','BIHAR','PATNA');
+
+INSERT INTO EMPLOYEE VALUES(005,'KRITI','MUBAI','MALAD');
+
+INSERT INTO EMPLOYEE VALUES(006,'KRISHANA','MATHURA','RAIPUR');
+
+INSERT INTO EMPLOYEE VALUES(007,'SUNIL','GUJARAT','MEHSANA');
+
+INSERT INTO EMPLOYEE VALUES(008,'VISHESH','GUJARAT','PATAN');
+
+INSERT INTO EMPLOYEE VALUES(009,'POOJA','GUJARAT','VADODARA');
+
+INSERT INTO EMPLOYEE VALUES(010,'MEGHA','GUJARAT','PALNPUR');
+
+-- ********************** SHOW DATA IN ENPLOYEE TABLE  **********************
+
+SELECT * FROM EMPLOYEE;
+
+                               
+EMP_NO	NAME	  STREET	   CITY 
+1	      ARSHAD   GUJARAT   MEHSANA
+2	      AKASH	   GUJARAT   GATHINAGAR
+3	      AYAL	   GUJARAT   MEHSANA
+4	      ASI	     BIHAR	    PATNA
+5	      RITI	  MUBAI	    MALAD
+6	      RISHANA  MATHUR    RAIPUR
+7	      UNIL	   GUJARAT   MEHSANA
+8	      ISHESH   GUJARAT   PATAN
+9	      OOJA	   GUJARAT   VADODARA
+10      MEGHA	  GUJARAT    PALANPUR
+
+-- ********************** CREATE COMPANY TABLE  **********************
+CREATE TABLE COMPANY(
+         COM_ID INT PRIMARY KEY,
+         COM_NA VARCHAR(20),
+         CITY VARCHAR(10)
+);
+
+-- ********************** INSERT DATA IN COMPANY TABLE  **********************
+
+INSERT INTO company values (1001, 'Google','Banglore');
+INSERT INTO company values (1002, 'Microsoft','Pune');
+INSERT INTO company values (1003, 'TCS','Ahmedabad');
+INSERT INTO company values (1004, 'Sun Microsis','Banglore');
+
+
+-- ********************** SHOW DATA IN COMPANY TABLE  **********************
+SELECT * FROM company;
+
+COM_ID	COM_NA	      CITY
+1001	  Google	      Banglore
+1002	  Microsoft     Pune
+1003	  TCS	          Ahmedabad
+1004	  Sun Microsis  Banglore
+
+-- ********************** INSERT DATA IN  MANAGER TABLE  **********************
+CREATE TABLE MANAGER( 
+            MAN_ID INT PRIMARY KEY, 
+            MAN_NAME VARCHAR(20) 
+ )
+
+-- ********************** INSERT DATA IN manage_enp TABLE  **********************
+INSERT INTO MANAGER values(1, 'Charls');
+
+INSERT INTO MANAGER values (2,'Akshay');
+
+INSERT INTO MANAGER values(3, 'Martin');
+
+INSERT INTO MANAGER values (4, 'Ajay');
+
+INSERT INTO MANAGER values (5, 'Roy');
+
+INSERT INTO MANAGER values(6, 'Prabhas');
+
+INSERT INTO MANAGER values (7, 'John ');
+
+INSERT INTO MANAGER values(8, 'Petric');
+
+-- ********************** SHOW DATA IN COMPANY TABLE  **********************
+SELECT * FROM MANAGER
+
+MAN_ID	MAN_NAME
+1	       Charls
+2	       Akshay
+3	       Martin
+4	       Ajay
+5	       Roy
+6	       Prabhas
+7	       John
+8	       Petric
+
+-- ********************** INSERT DATA IN WORKS TABLE  **********************
+CREATE TABLE WORKS(  
+         WOR_ID INT PRIMARY KEY,  
+         COM_ID INT REFERENCES COMPANY(COM_ID) ,  
+         EMP_NO INT REFERENCES EMPLOYEE(EMP_NO),
+	       SALARY INT 
+  );
+
+-- ********************** INSERT DATA IN manage_enp TABLE  **********************
+INSERT INTO WORKS VALUES(1, '1001', '1',50000)
+
+INSERT INTO WORKS VALUES(2, '1002', '2',45000)
+
+INSERT INTO WORKS VALUES(4, '1004', '3',57840)
+
+INSERT INTO WORKS VALUES(5, '1003', '4',68000)
+
+INSERT INTO WORKS VALUES(6, '1003', '4',47000)
+
+INSERT INTO WORKS VALUES(7, '1002', '5',658900)
+
+INSERT INTO WORKS VALUES(8, '1002', '6',658000)
+
+INSERT INTO WORKS VALUES(9, '1002', '7',478900)
+
+INSERT INTO WORKS VALUES(10,'1001', '8',870000)
+
+INSERT INTO WORKS VALUES(11,'1004', '9',45800)
+
+INSERT INTO WORKS VALUES(12,'1004', '10',458700)
+
+INSERT INTO WORKS VALUES(13,'1003', '5',165800)
+
+INSERT INTO WORKS VALUES(14,'1003', '10',54800)
+
+INSERT INTO WORKS VALUES(15,'1002', '3',658900)
+
+INSERT INTO WORKS VALUES(16,'1002', '1',457800)
+
+INSERT INTO WORKS VALUES(17,'1001', '8',85200)
+
+-- ********************** SHOW DATA IN COMPANY TABLE  **********************
+SELECT * FROM WORKS
+
+WOR_ID	COM_ID	EMP_NO	SALARY
+1	      1001	    1	     50000
+2 	    1002	    2	     45000
+4	      1004	    3	     57840
+5	      1003	    4	     68000
+6	      1003	    4	     47000
+7	      1002	    5	     658900
+8	      1002	    6	     658000
+9	      1002	    7	     478900
+10	    1001	    8	     870000
+11	    1004	    9	     45800
+12	    1004	    10     458700
+13	    1003	    5	     165800
+14	    1003	    10     54800
+15	    1002	    3	     658900
+16	    1002	    1	     457800
+17	    1001	    8	     85200
+-- ********************** INSERT DATA IN manage_enp TABLE  **********************
+CREATE TABLE manage_enp(
+            MANEGE_ID INT PRIMARY KEY,
+            EMP_NO INT REFERENCES EMPLOYEE(EMP_NO),
+             MAN_ID INT REFERENCES MANAGER(MAN_ID)  
+            
+            
+ );
+
+ -- ********************** INSERT DATA IN manage_enp TABLE  **********************
+INSERT INTO manage_enp VALUES (101, 1, 2);
+INSERT INTO manage_enp VALUES (102, 2, 7);
+INSERT INTO manage_enp VALUES (103, 3, 7);
+INSERT INTO manage_enp VALUES (104, 4, 6);
+INSERT INTO manage_enp VALUES(105, 5, 6);
+INSERT INTO manage_enp VALUES (106, 5, 6);
+INSERT INTO manage_enp VALUES (107, 7, 4);
+INSERT INTO manage_enp VALUES (108, 8, 3);
+INSERT INTO manage_enp VALUES (109, 9, 3);
+INSERT INTO manage_enp VALUES (110, 10,3);
+
+-- ********************** SHOW DATA IN manage_enp TABLE  **********************
+
+
+
+MANEGE_ID      EMP_NO	  MAN_ID
+ 101	         1	        2
+ 102	         2	        7
+ 103	         3	        7
+ 104	         4	        6
+ 105	         5	        6
+ 106	         5	        6
+ 107	         7	        4
+ 108	         8	        3
+ 109	         9	        3
+ 110	        10	        3 
+ 
+ 
+ B. Find list of employees with their salaries. {BAKI HE 😅😅😅}
+
