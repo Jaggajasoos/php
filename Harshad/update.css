@@ -1,0 +1,159 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.backimg {
+    height: 100vh;
+    width: 100%;
+    margin-top: 3rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backimg video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    margin-top: 3rem;
+    opacity: .8;
+}
+
+.backimg_form {
+    position: relative;
+    z-index: 1;
+    /* max-width: 1000px; */
+    margin: 0px auto;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+nav {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(139, 10, 252, 0.897);
+    position: sticky;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+h1.name {
+    margin-top: 0px;
+    margin: 0px 20px;
+    font-size: 25px;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    color: antiquewhite;
+    text-decoration: overline;
+    text-shadow: 3px 3px black;
+}
+
+.text {
+    width: 100%;
+    width: 100%;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    margin: 0px 2px;
+    margin-right: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: overline;
+}
+
+.form {
+    width: 60vw;
+    margin: 0px auto;
+    text-align: center;
+}
+
+h2 {
+    /* background-color: rgb(164, 245, 199); */
+    margin: auto;
+    width: 50vw;
+    /* height: 5px 5px; */
+    border: 2px solid purple;
+    padding: 11px;
+    border-radius: 30px;
+}
+
+.login {
+    margin-left: 3px;
+    border: 2px solid rgb(10, 10, 10);
+    border-radius: 4px;
+    background-color: red;
+    padding: 2px 3px;
+}
+
+.sub {
+    background-color: rgb(232 24 24 / 94%);
+    border-radius: 6px;
+    width: 20vw;
+    margin: 3px;
+    margin-bottom: 5px;
+}
+
+input {
+    border-radius: 20px;
+    text-align: center;
+    background-color: transparent;
+    color: rgb(138, 230, 18);
+    font-size: 20px;
+}
+
+.input {
+    width: 30vw;
+    height: 4vh;
+}
+
+.label {
+    color: rgb(171, 78, 194);
+}
+
+.see {
+    width: 40vh;
+    height: 3rem;
+    color: rgb(27, 28, 27);
+    font-size: 30px;
+    margin: 2px auto;
+    /* z-index: 1; */
+    /* text-shadow: 2px 2px black; */
+}
+
+.resat {
+    width: 4rem;
+    background-color: blueviolet;
+    border-radius: 20px;
+    text-align: center;
+}
+
+a {
+    margin-left: 2px;
+}

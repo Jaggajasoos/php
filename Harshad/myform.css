@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.form{
+    
+    
+    border: 2px solid grey;
+    background-color: aqua;
+
+
+}
+
+h2{
+    width: 100%;
+    margin: 2px auto;
+    color: blue;
+    font-size: 27px;
+    text-align: center;
+}
+
+form{
+    width: 600px;
+    margin: 50px auto;
+    border: 2px double white;
+    display: flex;
+    justify-content: center;
+    
+
+}
+label{
+    color: darkmagenta;
+    text-align: center;
+    
+}
+
+input{
+    border: 2px solid hotpink;
+    border-radius: 4px;
+    padding-left: 4px;
+}
+
+a{
+    width: 10px;
+    height: 20px;
+    border-color:3px solid brown;
+    background-color: blue;
+    border-radius: 4px;
+    color: #fff;
+    
+    text-decoration: none
+}
+
+a:hover{
+    background-color: red;
+
+    
+}
